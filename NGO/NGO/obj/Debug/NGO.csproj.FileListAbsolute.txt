@@ -80,10 +80,6 @@ C:\Users\fengl\source\repos\NGO\NGO\obj\Debug\NGO.csprojAssemblyReference.cache
 C:\Users\fengl\source\repos\NGO\NGO\obj\Debug\NGO.csproj.CopyComplete
 C:\Users\fengl\source\repos\NGO\NGO\obj\Debug\NGO.dll
 C:\Users\fengl\source\repos\NGO\NGO\obj\Debug\NGO.pdb
-C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.csprojAssemblyReference.cache
-C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.csproj.CoreCompileInputs.cache
-C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.dll
-C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.pdb
 C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\bin\NGO.dll.config
 C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\bin\NGO.dll
 C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\bin\NGO.pdb
@@ -162,4 +158,8 @@ C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\bin\System.Web.WebPages.
 C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\bin\Newtonsoft.Json.xml
 C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\bin\Antlr3.Runtime.pdb
 C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.csprojAssemblyReference.cache
+C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.csproj.CoreCompileInputs.cache
 C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.csproj.CopyComplete
+C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.dll
+C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.pdb

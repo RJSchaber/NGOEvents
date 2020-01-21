@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
 using System.Linq;
@@ -10,107 +11,109 @@ using NGO.Models;
 
 namespace NGO.Controllers
 {
-    public class UserMsController : Controller
+    public class EventsController : Controller
     {
+
+
         private ngoEntities1 db = new ngoEntities1();
 
-        // GET: UserMs
+        // GET: Events
         public ActionResult Index()
         {
-            return View(db.UserMs.ToList());
+            return View(db.Events.ToList());
         }
 
-        // GET: UserMs/Details/5
+        // GET: Events/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserM userM = db.UserMs.Find(id);
-            if (userM == null)
+            Event @event = db.Events.Find(id);
+            if (@event == null)
             {
                 return HttpNotFound();
             }
-            return View(userM);
+            return View(@event);
         }
 
-        // GET: UserMs/Create
+        // GET: Events/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: UserMs/Create
+        // POST: Events/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "First_Name,Last_Name,Email,Password,Role,UserID")] UserM userM)
+        public ActionResult Create([Bind(Include = "EventID,EventName,EventDescription,EventCategory,EventStartDate,EventEndDate,EventStartTime,EventEndTime,RegOpen,EventImage,AdultTicket,ChildTicket")] Event @event)
         {
             if (ModelState.IsValid)
             {
-                db.UserMs.Add(userM);
+                db.Events.Add(@event);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(userM);
+            return View(@event);
         }
 
-        // GET: UserMs/Edit/5
+        // GET: Events/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserM userM = db.UserMs.Find(id);
-            if (userM == null)
+            Event @event = db.Events.Find(id);
+            if (@event == null)
             {
                 return HttpNotFound();
             }
-            return View(userM);
+            return View(@event);
         }
 
-        // POST: UserMs/Edit/5
+        // POST: Events/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "First_Name,Last_Name,Email,Password,Role,UserID")] UserM userM)
+        public ActionResult Edit([Bind(Include = "EventID,EventName,EventDescription,EventCategory,EventStartDate,EventEndDate,EventStartTime,EventEndTime,RegOpen,EventImage,AdultTicket,ChildTicket")] Event @event)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(userM).State = EntityState.Modified;
+                db.Entry(@event).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(userM);
+            return View(@event);
         }
 
-        // GET: UserMs/Delete/5
+        // GET: Events/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            UserM userM = db.UserMs.Find(id);
-            if (userM == null)
+            Event @event = db.Events.Find(id);
+            if (@event == null)
             {
                 return HttpNotFound();
             }
-            return View(userM);
+            return View(@event);
         }
 
-        // POST: UserMs/Delete/5
+        // POST: Events/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            UserM userM = db.UserMs.Find(id);
-            db.UserMs.Remove(userM);
+            Event @event = db.Events.Find(id);
+            db.Events.Remove(@event);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

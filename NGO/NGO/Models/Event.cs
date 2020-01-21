@@ -11,20 +11,47 @@ namespace NGO.Models
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+
     public partial class Event
     {
+        public enum Categories
+        {
+            [Description("Conference")]
+            Conference,
+            [Description("Seminar")]
+            Seminar,
+            [Description("Presentation")]
+            Presentation
+        }
+
+        [Required][Key]
         public int EventID { get; set; }
+        [MaxLength(50, ErrorMessage = "The name can not be longer than 50 characters.")]
+        [Required(ErrorMessage = "Please enter a name for this event.")]
         public string EventName { get; set; }
+        [Required(ErrorMessage = "Please enter a brief description for this event.")]
+        [MinLength(20, ErrorMessage = "The description needs to be at least 20 characters.")]
+        [MaxLength(200, ErrorMessage = "The description can not be longer than 200 characters.")]
         public string EventDescription { get; set; }
-        public string EventCategory { get; set; }
+        [Required(ErrorMessage = "Please select a category for this event")]
+        public Categories EventCategory { get; set; }
+        [Required(ErrorMessage = "Please enter a start date for this event.")]
         public System.DateTime EventStartDate { get; set; }
+        [Required(ErrorMessage = "Please enter an end date for this event.")]
         public System.DateTime EventEndDate { get; set; }
+        [Required(ErrorMessage = "Please enter a starting time for this event.")]
         public System.TimeSpan EventStartTime { get; set; }
+        [Required(ErrorMessage = "Please enter an ending time for this event.")]
         public System.TimeSpan EventEndTime { get; set; }
+        [Required(ErrorMessage = "Is the registration for this event open or not?")]
         public string RegOpen { get; set; }
+        [Required(ErrorMessage = "This event needs an image associated with it.")]
         public byte[] EventImage { get; set; }
+        [Required(ErrorMessage = "Please enter a ticket price for adults for this event.")]
         public decimal AdultTicket { get; set; }
+        [Required(ErrorMessage = "Please enter a ticket price for children for this event.")]
         public decimal ChildTicket { get; set; }
     }
 }
