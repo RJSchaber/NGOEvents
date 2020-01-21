@@ -17,11 +17,5 @@ namespace NGO.Models
         [Required(ErrorMessage ="Please Enter your password.")]
 
         public string Password { get; set; }
-
-        public string LoginProcess(String stremail, String strpassword)
-        {
-            String message = " ";
-
-        }
     }
 }
