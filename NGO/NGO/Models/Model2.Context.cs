@@ -22,10 +22,10 @@ namespace NGO.Models
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            throw new UnintentionalCodeFirstException();
+            modelBuilder.Properties<decimal>().Configure(config => config.HasPrecision(5, 2));
+            modelBuilder.Entity<Event>().ToTable("Events");
         }
     
         public virtual DbSet<Event> Events { get; set; }
-        public virtual DbSet<UserM> UserMs { get; set; }
     }
 }

@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using NGO.Models;
+
+
 
 namespace NGO.Controllers
 {
@@ -44,13 +47,20 @@ namespace NGO.Controllers
             return View();
         }
 
-        // POST: Events/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventID,EventName,EventDescription,EventCategory,EventStartDate,EventEndDate,EventStartTime,EventEndTime,RegOpen,EventImage,AdultTicket,ChildTicket")] Event @event)
+        public ActionResult Create([Bind(Include = "EventName,EventDescription,EventCategory,EventStartDate,EventEndDate,EventStartTime,EventEndTime,RegOpen,EventImage,AdultTicket,ChildTicket,ImageFile")]Event @event)
         {
+            string fileName = Path.GetFileNameWithoutExtension(@event.ImageFile.FileName);
+            string extension = Path.GetExtension(@event.ImageFile.FileName);
+            fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            @event.EventImage = "~/EventImages/" + fileName;
+            fileName = Path.Combine(Server.MapPath("~/EventImages/"), fileName);
+            @event.ImageFile.SaveAs(fileName);
+
+            @event.EventStartTime = DateTime.Parse(@event.EventStartTime).ToString("hh:mm tt");
+            @event.EventEndTime = DateTime.Parse(@event.EventEndTime).ToString("hh:mm tt");
+
             if (ModelState.IsValid)
             {
                 db.Events.Add(@event);
@@ -76,9 +86,6 @@ namespace NGO.Controllers
             return View(@event);
         }
 
-        // POST: Events/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "EventID,EventName,EventDescription,EventCategory,EventStartDate,EventEndDate,EventStartTime,EventEndTime,RegOpen,EventImage,AdultTicket,ChildTicket")] Event @event)

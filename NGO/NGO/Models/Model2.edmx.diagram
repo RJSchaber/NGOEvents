@@ -5,8 +5,7 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="665b255f54f84d91ac189c4a2453c561" Name="Diagram1">
-        <EntityTypeShape EntityType="ngoModel1.Event" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ngoModel1.UserM" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ngoModel1.Event" PointX="5.25" PointY="1.375" Width="1.5" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

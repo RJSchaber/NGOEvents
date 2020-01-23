@@ -1,35 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Schema Namespace="ngoModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+<Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="ngoModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
   <EntityType Name="Events">
     <Key>
       <PropertyRef Name="EventID" />
     </Key>
-    <Property Name="EventID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="EventName" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="EventDescription" Type="varchar" MaxLength="200" Nullable="false" />
-    <Property Name="EventCategory" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="EventStartDate" Type="date" Nullable="false" />
-    <Property Name="EventEndDate" Type="date" Nullable="false" />
-    <Property Name="EventStartTime" Type="time" Precision="7" Nullable="false" />
-    <Property Name="EventEndTime" Type="time" Precision="7" Nullable="false" />
-    <Property Name="RegOpen" Type="char" MaxLength="1" Nullable="false" />
-    <Property Name="EventImage" Type="image" Nullable="false" />
-    <Property Name="AdultTicket" Type="decimal" Precision="5" Scale="2" Nullable="false" />
-    <Property Name="ChildTicket" Type="decimal" Precision="5" Scale="2" Nullable="false" />
-  </EntityType>
-  <EntityType Name="UserM">
-    <Key>
-      <PropertyRef Name="UserID" />
-    </Key>
-    <Property Name="First Name" Type="varchar" MaxLength="25" Nullable="false" />
-    <Property Name="Last Name" Type="varchar" MaxLength="25" Nullable="false" />
-    <Property Name="Email" Type="varchar" MaxLength="320" Nullable="false" />
-    <Property Name="Password" Type="char" MaxLength="60" Nullable="false" />
-    <Property Name="Role" Type="varchar" MaxLength="25" Nullable="false" />
-    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="EventID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+    <Property Name="EventName" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="EventDescription" Nullable="false" MaxLength="200" Type="varchar" />
+    <Property Name="EventCategory" Nullable="false" MaxLength="50" Type="varchar" />
+    <Property Name="EventStartDate" Nullable="false" Type="date" />
+    <Property Name="EventEndDate" Nullable="false" Type="date" />
+    <Property Name="EventStartTime" Nullable="false" Precision="7" Type="time" />
+    <Property Name="EventEndTime" Nullable="false" Precision="7" Type="time" />
+    <Property Name="RegOpen" Nullable="false" MaxLength="5" Type="varchar" />
+    <Property Name="EventImage" Nullable="false" Type="varchar(max)" />
+    <Property Name="AdultTicket" Nullable="false" Precision="5" Scale="2" Type="decimal" />
+    <Property Name="ChildTicket" Nullable="false" Precision="5" Scale="2" Type="decimal" />
   </EntityType>
   <EntityContainer Name="ngoModel1StoreContainer">
     <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="UserM" EntityType="Self.UserM" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>
