@@ -52,13 +52,13 @@ namespace NGO.Models
 
         [Required(ErrorMessage = "Please enter a start date for this event.")]
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [Display(Name = "Event Start Date", Prompt = "Enter Start Date", Description = "Event Start Date")]
         public DateTime EventStartDate { get; set; }
 
         [Required(ErrorMessage = "Please enter an end date for this event.")]
         [DataType(DataType.Date)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         [Display(Name = "Event End Date", Prompt = "Enter Event End Date", Description = "Event End Date")]
         public DateTime EventEndDate { get; set; }
 
