@@ -10,14 +10,27 @@
     <Property Name="EventCategory" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" Type="String" />
     <Property Name="EventStartDate" Nullable="false" Precision="0" Type="DateTime" />
     <Property Name="EventEndDate" Nullable="false" Precision="0" Type="DateTime" />
-    <Property Name="EventStartTime" Nullable="false" Precision="7" Type="Time" />
-    <Property Name="EventEndTime" Nullable="false" Precision="7" Type="Time" />
+    <Property Name="EventStartTime" Nullable="false" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="EventEndTime" Nullable="false" Type="String" MaxLength="10" Unicode="false" FixedLength="false" />
     <Property Name="RegOpen" Nullable="false" MaxLength="5" FixedLength="false" Unicode="false" Type="String" />
-    <Property Name="EventImage" Nullable="false" Type="String" />
+    <Property Name="EventImage" Nullable="false" Type="String" MaxLength="Max" Unicode="false" FixedLength="false" />
     <Property Name="AdultTicket" Nullable="false" Precision="5" Scale="2" Type="Decimal" />
     <Property Name="ChildTicket" Nullable="false" Precision="5" Scale="2" Type="Decimal" />
+    <Property Name="Location" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
   </EntityType>
   <EntityContainer Name="ngoEntities1" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Events" EntityType="Self.Event" />
+    <EntitySet Name="UserNGOes" EntityType="ngoModel1.UserNGO" />
   </EntityContainer>
+  <EntityType Name="UserNGO">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="First_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Last_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

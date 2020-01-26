@@ -163,6 +163,7 @@ C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.csproj.Cor
 C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.csproj.CopyComplete
 C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.dll
 C:\Users\Summitworks\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.pdb
+C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\bin\NGO.dll.config
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\bin\NGO.dll
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\bin\NGO.pdb
@@ -177,7 +178,6 @@ C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\bin\roslyn\Microsoft.CodeA
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\bin\roslyn\Microsoft.CodeAnalysis.dll
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll
-C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\bin\roslyn\Microsoft.CSharp.Core.targets
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll
@@ -241,8 +241,8 @@ C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\bin\System.Web.WebPages.De
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\bin\System.Web.WebPages.Razor.xml
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\bin\Antlr3.Runtime.pdb
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
-C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.csprojAssemblyReference.cache
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.csproj.CoreCompileInputs.cache
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.csproj.CopyComplete
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.dll
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.pdb
+C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.csprojAssemblyReference.cache

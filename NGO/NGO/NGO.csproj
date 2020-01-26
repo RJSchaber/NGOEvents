@@ -136,24 +136,27 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\EventModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EventModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Login.cs" />
     <Compile Include="Models\Event.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model2.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model2.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.tt</DependentUpon>
+      <DependentUpon>EventModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EventModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EventModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\UserNGO.cs">
+      <DependentUpon>EventModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -164,18 +167,28 @@
     <Content Include="Content\bootstrap-reboot.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\EventIndex.css" />
+    <Content Include="Content\images\ui-icons_444444_256x240.png" />
+    <Content Include="Content\images\ui-icons_555555_256x240.png" />
+    <Content Include="Content\images\ui-icons_777620_256x240.png" />
+    <Content Include="Content\images\ui-icons_777777_256x240.png" />
+    <Content Include="Content\images\ui-icons_cc0000_256x240.png" />
+    <Content Include="Content\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jquery-ui.css" />
+    <Content Include="Content\jquery-ui.structure.css" />
+    <Content Include="Content\jquery-ui.theme.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Model2.Context.tt">
+    <Content Include="Models\EventModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EventModel.Context.cs</LastGenOutput>
       <DependentUpon>EventModel.edmx</DependentUpon>
-      <LastGenOutput>Model2.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model2.tt">
+    <Content Include="Models\EventModel.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>EventModel.cs</LastGenOutput>
       <DependentUpon>EventModel.edmx</DependentUpon>
-      <LastGenOutput>Model2.cs</LastGenOutput>
     </Content>
     <EntityDeploy Include="Models\EventModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -213,6 +226,7 @@
     <Content Include="Scripts\jquery-3.4.1.slim.js" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />

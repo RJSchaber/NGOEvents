@@ -23,16 +23,19 @@ namespace NGO.Models
         {
             Conference,
             Seminar,
-            Presentation
+            Presentation,
+            Spiritual,
+            Social
         }
 
         public enum Registration
         {
-            True, 
+            True,
             False
         }
 
-        [Required][Key]
+        [Required]
+        [Key]
         public int EventID { get; set; }
 
         [MaxLength(50, ErrorMessage = "The name can not be longer than 50 characters.")]
@@ -41,7 +44,7 @@ namespace NGO.Models
         public string EventName { get; set; }
 
         [Required(ErrorMessage = "Please enter a brief description for this event.")]
-        [MinLength(20, ErrorMessage = "The description needs to be at least 20 characters.")]
+        [MinLength(10, ErrorMessage = "The description needs to be at least 10 characters.")]
         [MaxLength(200, ErrorMessage = "The description can not be longer than 200 characters.")]
         [Display(Name = "Event Description", Prompt = "Enter Event Description", Description = "Event Description")]
         public string EventDescription { get; set; }
@@ -74,6 +77,12 @@ namespace NGO.Models
         [Display(Name = "Event End Time", Prompt = "Enter Event End Time", Description = "Event End Time")]
         public string EventEndTime { get; set; }
 
+        [Required(ErrorMessage = "Please enter the location for this event.")]
+        [MinLength(5, ErrorMessage = "The location needs to be at least 5 characters.")]
+        [MaxLength(200, ErrorMessage = "The location can not be longer than 200 characters.")]
+        [Display(Name = "Event Location", Prompt = "Enter Event Location", Description = "Event Location")]
+        public string Location { get; set; }
+
         [Required(ErrorMessage = "Is the registration for this event open or not?")]
         [Display(Name = "Registration Open:", Prompt = "Is The Registration Open?", Description = "Registration is open or closed")]
         public string RegOpen { get; set; }
@@ -98,6 +107,6 @@ namespace NGO.Models
         [NotMapped]
         public HttpPostedFileBase ImageFile { get; set; }
 
-
+        
     }
 }

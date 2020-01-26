@@ -1,0 +1,32 @@
+﻿.create-new-event {
+    text-align: right !important;
+    font-size: 20px;
+    font-weight: bold;
+    vertical-align: text-bottom;
+    margin-top: 3%;
+}
+
+/* unvisited link */
+    .new-event a:link {
+        color: black;
+    }
+
+/* visited link */
+    .new-event a:visited {
+        color: black;
+    }
+
+/* mouse over link */
+    .new-event a:hover {
+        color: blue;
+        text-decoration: none;
+    }
+
+/* selected link */
+    .new-event a:active {
+        color: black;
+    }
+
+.event-header-space {
+    margin-top: 3%;
+}

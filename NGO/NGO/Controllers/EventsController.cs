@@ -49,7 +49,7 @@ namespace NGO.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EventName,EventDescription,EventCategory,EventStartDate,EventEndDate,EventStartTime,EventEndTime,RegOpen,EventImage,AdultTicket,ChildTicket,ImageFile")]Event @event)
+        public ActionResult Create([Bind(Include = "EventName,EventDescription,EventCategory,EventStartDate,EventEndDate,EventStartTime,EventEndTime,Location,RegOpen,EventImage,AdultTicket,ChildTicket,ImageFile")]Event @event)
         {
             string fileName = Path.GetFileNameWithoutExtension(@event.ImageFile.FileName);
             string extension = Path.GetExtension(@event.ImageFile.FileName);
@@ -71,7 +71,7 @@ namespace NGO.Controllers
             return View(@event);
         }
 
-        // GET: Events/Edit/5
+        [HttpGet]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -83,7 +83,7 @@ namespace NGO.Controllers
             {
                 return HttpNotFound();
             }
-            return View(@event);
+            return PartialView(@event);
         }
 
         [HttpPost]

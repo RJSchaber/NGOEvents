@@ -1,24 +1,31 @@
 ﻿@model IEnumerable<NGO.Models.Event>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Event Management";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<div class="form-group row">
+    <div class="col-sm-6">
+        <h2 class="event-header-space">Event Management</h2>
+    </div>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
+    <div class="create-new-event new-event col-sm-6">
+        @*@Html.ActionLink("Add A New Event", "Create")*@
+        <a href="/Events/Create" id=item.EventID onclick="CreatePopup();" target="_blank">Create</a>
+    </div>
+</div>
+
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.EventName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EventDescription)
+            @Html.DisplayNameFor(model => model.EventCategory)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.EventCategory)
+            @Html.DisplayNameFor(model => model.Location)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.EventStartDate)
@@ -26,68 +33,67 @@
         <th>
             @Html.DisplayNameFor(model => model.EventEndDate)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EventStartTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EventEndTime)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.RegOpen)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.EventImage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.AdultTicket)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ChildTicket)
-        </th>
         <th></th>
     </tr>
 
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventName)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventDescription)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventCategory)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventStartDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventEndDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventStartTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventEndTime)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.RegOpen)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.EventImage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.AdultTicket)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ChildTicket)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.EventID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.EventID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.EventID })
-        </td>
-    </tr>
-}
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventCategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventStartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EventEndDate)
+            </td>
+            <td class="new-event">
+                <a href="/Events/Edit" id=item.EventID onclick="EditPopup();" target="_blank">Edit</a>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.EventID }, new { onclick = "EditPopup();" })*@ |
+                <a href="/Events/Details" id=item.EventID onclick="DetailsPopup();" target="_blank">Details</a>
+                @*@Html.ActionLink("Details", "Details", new { id = item.EventID })*@ |
+                @*@Html.ActionLink("Delete", "Delete", new { id = item.EventID })*@
+                <a href="/Events/Delete" id=item.EventID onclick="DeletePopup();" target="_blank">Delete</a>
+                <div id="eventid" data-name="@item.EventID"></div>
+            </td>
+        </tr>
+    }
 
 </table>
+
+
+<script type="text/javascript">
+
+    
+
+    EditPopup = function () {
+
+        var somevar = $('#eventid').data('name')
+        window.open('Edit/'+ somevar, "PopupWindow", 'width=800px,height=800px,top=150,left=250');
+    }
+
+    DetailsPopup = function () {
+
+        var somevar = $('#eventid').data('name')
+        window.open('Details/' + somevar, "PopupWindow", 'width=800px,height=800px,top=150,left=250');
+    }
+
+    DeletePopup = function () {
+
+        var somevar = $('#eventid').data('name')
+        window.open('Delete/' + somevar, "PopupWindow", 'width=800px,height=800px,top=150,left=250');
+    }
+
+    CreatePopup = function () {
+
+        window.open('Create', "PopupWindow", 'width=800px,height=800px,top=150,left=250');
+    }
+
+</script> 

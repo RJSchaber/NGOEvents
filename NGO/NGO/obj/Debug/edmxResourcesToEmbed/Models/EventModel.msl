@@ -4,6 +4,7 @@
     <EntitySetMapping Name="Events">
       <EntityTypeMapping TypeName="ngoModel1.Event">
         <MappingFragment StoreEntitySet="Events">
+          <ScalarProperty Name="Location" ColumnName="Location" />
           <ScalarProperty Name="EventID" ColumnName="EventID" />
           <ScalarProperty Name="EventName" ColumnName="EventName" />
           <ScalarProperty Name="EventDescription" ColumnName="EventDescription" />
@@ -16,6 +17,18 @@
           <ScalarProperty Name="EventImage" ColumnName="EventImage" />
           <ScalarProperty Name="AdultTicket" ColumnName="AdultTicket" />
           <ScalarProperty Name="ChildTicket" ColumnName="ChildTicket" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="UserNGOes">
+      <EntityTypeMapping TypeName="ngoModel1.UserNGO">
+        <MappingFragment StoreEntitySet="UserNGO">
+          <ScalarProperty Name="Role" ColumnName="Role" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
+          <ScalarProperty Name="First_Name" ColumnName="First Name" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
