@@ -65,7 +65,7 @@ namespace NGO.Controllers
             {
                 db.Events.Add(@event);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return JavaScript("window.close();");
             }
 
             return View(@event);
