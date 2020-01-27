@@ -44,7 +44,6 @@
         @Html.LabelFor(model => model.EventStartDate, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.TextBoxFor(model => model.EventStartDate, new { @type = "date", @class = "form-control datepicker", @Value = Model.EventStartDate.ToString("yyyy-MM-dd") })
-            @*@Html.EditorFor(model => model.EventStartDate, new { htmlAttributes = new { @class = "form-control" } })*@
             @Html.ValidationMessageFor(model => model.EventStartDate, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -53,7 +52,6 @@
         @Html.LabelFor(model => model.EventEndDate, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.TextBoxFor(model => model.EventEndDate, new { @type = "date", @class = "form-control datepicker", @Value = Model.EventEndDate.ToString("yyyy-MM-dd") })
-            @*@Html.EditorFor(model => model.EventEndDate, new { htmlAttributes = new { @class = "form-control" } })*@
             @Html.ValidationMessageFor(model => model.EventEndDate, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -62,7 +60,6 @@
         @Html.LabelFor(model => model.EventStartTime, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.TextBoxFor(model => model.EventStartTime, new {@class = "form-control"})
-            @*@Html.EditorFor(model => model.EventStartTime, new { htmlAttributes = new { @class = "form-control" } })*@
             @Html.ValidationMessageFor(model => model.EventStartTime, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -71,7 +68,6 @@
         @Html.LabelFor(model => model.EventEndTime, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.TextBoxFor(model => model.EventEndTime, new { @class = "form-control" })
-            @*@Html.EditorFor(model => model.EventEndTime, new { htmlAttributes = new { @class = "form-control" } })*@
             @Html.ValidationMessageFor(model => model.EventEndTime, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -124,12 +120,5 @@
 
 </div>
 
-    <script>
-        $(function () {
-            $(".datefield").datepicker({
-                dateFormat: 'dd/mm/yy',
-                showOn: "button"
-            });
-        });
-    </script>
+
 }

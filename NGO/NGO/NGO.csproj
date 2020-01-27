@@ -337,6 +337,7 @@
     <Content Include="Views\Shared\PopUpLayout.cshtml" />
     <Content Include="Views\Events\EventUserView.cshtml" />
     <Content Include="Views\Events\Close.cshtml" />
+    <Content Include="Views\Events\EventUserViewDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

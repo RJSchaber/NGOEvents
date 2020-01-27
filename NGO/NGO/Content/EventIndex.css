@@ -52,3 +52,27 @@
 .event-column {
     padding-bottom: 1.5%;
 }
+
+.eventregheaders {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 2%;
+    padding: 1%;
+}
+
+.eventregcontent {
+    margin-bottom: 2%;
+    padding: 1%;
+    font-size: 1.1rem;
+}
+
+.eventbottmargin{
+    margin-bottom: 5%;
+}
+
+.eventregdetails{
+    font-weight: bold;
+    margin-left: -20px;
+    padding: 0;
+    text-align: center;
+}

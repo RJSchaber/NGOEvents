@@ -1,0 +1,49 @@
+﻿@model NGO.Models.Event
+
+@{
+    ViewBag.Title = "EventUserViewDetails";
+}
+
+<div class="eventbottmargin">
+    <h4 class="event-header-space">Event Registration Details: @Html.DisplayFor(model => model.EventName)</h4>
+    <hr />
+    <div class="row">
+        <div class="col-sm-4">
+            <div class="row eventregheaders">@Html.DisplayNameFor(model => model.EventName)</div>
+            <div class="row eventregcontent">@Html.DisplayFor(model => model.EventName)</div>
+
+            <div class="row eventregheaders">@Html.DisplayNameFor(model => model.EventCategory)</div>
+            <div class="row eventregcontent">@Html.DisplayFor(model => model.EventCategory)</div>
+
+            <div class="row eventregheaders">@Html.DisplayNameFor(model => model.Location)</div>
+            <div class="row eventregcontent">@Html.DisplayFor(model => model.Location)</div>
+
+            <div class="row eventregheaders">@Html.DisplayNameFor(model => model.EventName)</div>
+            <div class="row eventregcontent">@Html.DisplayFor(model => model.EventName)</div>
+
+            <div class="row eventregheaders">Start Date and Time </div>
+            <div class="row eventregcontent">@Html.DisplayFor(model => model.EventStartDate) at @Html.DisplayFor(model => model.EventStartTime)</div>
+
+            <div class="row eventregheaders">End Date and Time </div>
+            <div class="row eventregcontent">@Html.DisplayFor(model => model.EventEndDate) at @Html.DisplayFor(model => model.EventEndTime)</div>
+        </div>
+        <div class="col-sm-4">
+            <div class="row eventregheaders">@Html.DisplayNameFor(model => model.EventDescription)</div>
+            <div class="row eventregcontent">@Html.DisplayFor(model => model.EventDescription)</div>
+
+            <div class="row eventregheaders">@Html.DisplayNameFor(model => model.AdultTicket)</div>
+            <div class="row eventregcontent">@Html.DisplayFor(model => model.AdultTicket)</div>
+
+            <div class="row eventregheaders">@Html.DisplayNameFor(model => model.ChildTicket)</div>
+            <div class="row eventregcontent">@Html.DisplayFor(model => model.ChildTicket)</div>
+        </div>
+
+        <div class="col-sm-4">
+            <img src="@Url.Content(ViewBag.ImagePath)" class="event-thumbnail rounded" />
+        </div>
+    </div>
+
+</div>
+<p>
+    @Html.ActionLink("Back to List", "EventUserView")
+</p>

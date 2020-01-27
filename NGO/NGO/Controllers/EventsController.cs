@@ -148,5 +148,22 @@ namespace NGO.Controllers
             return View(db.Events.ToList());
         }
 
+        [HttpGet]
+        public ActionResult EventUserViewDetails(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Event @event = db.Events.Find(id);
+            if (@event == null)
+            {
+                return HttpNotFound();
+            }
+            ViewBag.ImagePath = @event.EventImage;
+            return View(@event);
+        }
+
+
     }
 }

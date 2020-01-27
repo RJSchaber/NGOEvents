@@ -84,22 +84,22 @@ namespace NGO.Models
         public string Location { get; set; }
 
         [Required(ErrorMessage = "Is the registration for this event open or not?")]
-        [Display(Name = "Registration Open:", Prompt = "Is The Registration Open?", Description = "Registration is open or closed")]
+        [Display(Name = "Registration Open", Prompt = "Is The Registration Open?", Description = "Registration is open or closed")]
         public string RegOpen { get; set; }
 
-        [Display(Name = "Event Image:", Prompt = "Select Event Image", Description = "Event Image")]
+        [Display(Name = "Event Image", Prompt = "Select Event Image", Description = "Event Image")]
         public string EventImage { get; set; }
 
         [Required(ErrorMessage = "Please enter a ticket price for adults for this event.")]
         [Range(1, 999)]
         [DataType(DataType.Currency)]
-        [Display(Name = "Adult Ticket Price:", Prompt = "Enter The Price Of An Adult Ticket", Description = "Adult Ticket Price")]
+        [Display(Name = "Adult Ticket Price", Prompt = "Enter The Price Of An Adult Ticket", Description = "Adult Ticket Price")]
         public decimal AdultTicket { get; set; }
 
         [Required(ErrorMessage = "Please enter a ticket price for children for this event.")]
         [Range(1, 999)]
         [DataType(DataType.Currency)]
-        [Display(Name = "Child Ticket Price:", Prompt = "Enter The Price Of A Child Ticket", Description = "Child Ticket Price")]
+        [Display(Name = "Child Ticket Price", Prompt = "Enter The Price Of A Child Ticket", Description = "Child Ticket Price")]
         public decimal ChildTicket { get; set; }
 
         [NotMapped]
