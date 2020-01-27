@@ -133,5 +133,10 @@ namespace NGO.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult EventUserView()
+        {
+            return View(db.Events.ToList());
+        }
     }
 }

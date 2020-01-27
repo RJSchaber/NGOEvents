@@ -30,3 +30,25 @@
 .event-header-space {
     margin-top: 3%;
 }
+
+.eventrow {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.event-thumbnail {
+    padding: 0.25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    width: 350px;
+    height: 400px;
+}
+
+.event-column {
+    padding-bottom: 1.5%;
+}

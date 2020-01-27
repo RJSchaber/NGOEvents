@@ -1,0 +1,30 @@
+﻿@model IEnumerable<NGO.Models.Event>
+
+@{
+    ViewBag.Title = "Events";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div>
+<h2 class="event-header-space">Events</h2>
+<div class="eventrow">
+    @foreach (var item in Model)
+
+    {
+        <div class="col-sm-4 event-column">
+            <div class="row">
+                <img src="@Url.Content(item.EventImage)" class="event-thumbnail rounded" />
+            </div>
+            <div class="flex-md-row row">
+                @Html.DisplayFor(modelItem => item.Location) :  @Html.DisplayFor(modelItem => item.EventName)
+            </div>
+        </div>
+
+    }
+</div>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+</div>
+
