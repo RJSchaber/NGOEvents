@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="9efe01c9a05a4646a8fefebb0a02bfc6" Name="Diagram1">
         <EntityTypeShape EntityType="ngoModel.Event" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ngoModel.UserM" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ngoModel.UserM" Width="1.5" PointX="8.375" PointY="2.5" IsExpanded="true" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

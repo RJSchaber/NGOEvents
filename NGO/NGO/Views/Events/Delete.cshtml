@@ -29,14 +29,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EventCategory)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EventCategory)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.EventStartDate)
         </dt>
 
@@ -53,22 +45,6 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.EventStartTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EventStartTime)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EventEndTime)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EventEndTime)
-        </dd>
-
-        <dt>
             @Html.DisplayNameFor(model => model.Location)
         </dt>
 
@@ -76,46 +52,20 @@
             @Html.DisplayFor(model => model.Location)
         </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.RegOpen)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.RegOpen)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.EventImage)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.EventImage)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.AdultTicket)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.AdultTicket)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.ChildTicket)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.ChildTicket)
-        </dd>
 
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+    <div class="form-actions no-color">
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 text-center">
+                <input type="submit" value="Delete" class="btn btn-primary" /> <input type="button" value="Cancel" class="btn btn-primary" onclick="javascript:window.close()" />
+            </div>
         </div>
+
+    </div>
     }
 </div>

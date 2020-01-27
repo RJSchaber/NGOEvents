@@ -21,4 +21,4 @@ namespace NGOproject.Models
         public string Role { get; set; }
         public int UserID { get; set; }
     }
-}  
+}

@@ -9,14 +9,13 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using NGO.Models;
-
+using System.Web.Mvc.Ajax;
 
 
 namespace NGO.Controllers
 {
     public class EventsController : Controller
     {
-
 
         private ngoEntities1 db = new ngoEntities1();
 
@@ -65,7 +64,7 @@ namespace NGO.Controllers
             {
                 db.Events.Add(@event);
                 db.SaveChanges();
-                return JavaScript("window.close();");
+                return View("Close");
             }
 
             return View(@event);
@@ -88,13 +87,23 @@ namespace NGO.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EventID,EventName,EventDescription,EventCategory,EventStartDate,EventEndDate,EventStartTime,EventEndTime,RegOpen,EventImage,AdultTicket,ChildTicket")] Event @event)
+        public ActionResult Edit([Bind(Include = "EventID,EventName,EventDescription,EventCategory,EventStartDate,EventEndDate,EventStartTime,EventEndTime,Location,RegOpen,EventImage,AdultTicket,ChildTicket,ImageFile")] Event @event)
         {
+            string fileName = Path.GetFileNameWithoutExtension(@event.ImageFile.FileName);
+            string extension = Path.GetExtension(@event.ImageFile.FileName);
+            fileName = fileName + DateTime.Now.ToString("yymmssfff") + extension;
+            @event.EventImage = "~/EventImages/" + fileName;
+            fileName = Path.Combine(Server.MapPath("~/EventImages/"), fileName);
+            @event.ImageFile.SaveAs(fileName);
+
+            @event.EventStartTime = DateTime.Parse(@event.EventStartTime).ToString("hh:mm tt");
+            @event.EventEndTime = DateTime.Parse(@event.EventEndTime).ToString("hh:mm tt");
+
             if (ModelState.IsValid)
             {
                 db.Entry(@event).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return View("Close");
             }
             return View(@event);
         }
@@ -122,7 +131,7 @@ namespace NGO.Controllers
             Event @event = db.Events.Find(id);
             db.Events.Remove(@event);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return View("Close");
         }
 
         protected override void Dispose(bool disposing)
@@ -138,5 +147,6 @@ namespace NGO.Controllers
         {
             return View(db.Events.ToList());
         }
+
     }
 }

@@ -109,7 +109,10 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.EventID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+<div class="form-group">
+    <div class="col-md-offset-2 col-md-10 text-center">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.EventID }, new { @class = "btn btn-primary" }) <input type="button" value="Close" class="btn btn-primary" onclick="javascript:window.close()" />
+    </div>
+</div>
+

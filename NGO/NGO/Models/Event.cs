@@ -93,20 +93,18 @@ namespace NGO.Models
         [Required(ErrorMessage = "Please enter a ticket price for adults for this event.")]
         [Range(1, 999)]
         [DataType(DataType.Currency)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:C}")]
         [Display(Name = "Adult Ticket Price:", Prompt = "Enter The Price Of An Adult Ticket", Description = "Adult Ticket Price")]
         public decimal AdultTicket { get; set; }
 
         [Required(ErrorMessage = "Please enter a ticket price for children for this event.")]
         [Range(1, 999)]
         [DataType(DataType.Currency)]
-        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:C}")]
         [Display(Name = "Child Ticket Price:", Prompt = "Enter The Price Of A Child Ticket", Description = "Child Ticket Price")]
         public decimal ChildTicket { get; set; }
 
         [NotMapped]
         public HttpPostedFileBase ImageFile { get; set; }
 
-        
+
     }
 }
