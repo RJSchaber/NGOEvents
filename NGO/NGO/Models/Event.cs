@@ -18,7 +18,11 @@ namespace NGO.Models
 
     public partial class Event
     {
-
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Event()
+        {
+            this.EventRegistrations = new HashSet<EventRegistration>();
+        }
         public enum Categories
         {
             Conference,
@@ -105,6 +109,7 @@ namespace NGO.Models
         [NotMapped]
         public HttpPostedFileBase ImageFile { get; set; }
 
-
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EventRegistration> EventRegistrations { get; set; }
     }
 }

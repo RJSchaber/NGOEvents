@@ -131,6 +131,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EventRegistrationsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -153,6 +154,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EventModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventRegistration.cs">
+      <DependentUpon>EventModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserNGO.cs">
       <DependentUpon>EventModel.tt</DependentUpon>
@@ -338,6 +342,11 @@
     <Content Include="Views\Events\EventUserView.cshtml" />
     <Content Include="Views\Events\Close.cshtml" />
     <Content Include="Views\Events\EventUserViewDetails.cshtml" />
+    <Content Include="Views\EventRegistrations\Create.cshtml" />
+    <Content Include="Views\EventRegistrations\Delete.cshtml" />
+    <Content Include="Views\EventRegistrations\Details.cshtml" />
+    <Content Include="Views\EventRegistrations\Edit.cshtml" />
+    <Content Include="Views\EventRegistrations\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
