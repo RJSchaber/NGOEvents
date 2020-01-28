@@ -15,8 +15,8 @@
           <Property Name="EmailAddress" Type="varchar" MaxLength="100" Nullable="false" />
           <Property Name="PhoneNumber" Type="char" MaxLength="10" Nullable="false" />
           <Property Name="Address" Type="varchar(max)" Nullable="false" />
-          <Property Name="AdultTickets" Type="int" Nullable="false" />
-          <Property Name="ChildTickets" Type="int" Nullable="false" />
+          <Property Name="AdultTickets" Type="int" />
+          <Property Name="ChildTickets" Type="int" />
           <Property Name="EventID" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Events">
@@ -48,7 +48,7 @@
           <Property Name="Password" Type="varchar" MaxLength="50" />
           <Property Name="Role" Type="varchar" MaxLength="50" />
         </EntityType>
-        <Association Name="FK__EventRegi__Event__52593CB8">
+        <Association Name="FK__EventRegi__Event__5535A963">
           <End Role="Events" Type="Self.Events" Multiplicity="1" />
           <End Role="EventRegistration" Type="Self.EventRegistration" Multiplicity="*" />
           <ReferentialConstraint>
@@ -64,7 +64,7 @@
           <EntitySet Name="EventRegistration" EntityType="Self.EventRegistration" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserNGO" EntityType="Self.UserNGO" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__EventRegi__Event__52593CB8" Association="Self.FK__EventRegi__Event__52593CB8">
+          <AssociationSet Name="FK__EventRegi__Event__5535A963" Association="Self.FK__EventRegi__Event__5535A963">
             <End Role="Events" EntitySet="Events" />
             <End Role="EventRegistration" EntitySet="EventRegistration" />
           </AssociationSet>
@@ -122,8 +122,8 @@
           <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
           <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
-          <Property Name="AdultTickets" Type="Int32" Nullable="false" />
-          <Property Name="ChildTickets" Type="Int32" Nullable="false" />
+          <Property Name="AdultTickets" Type="Int32" />
+          <Property Name="ChildTickets" Type="Int32" />
           <Property Name="EventID" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Event" Relationship="ngoModel1.FK__EventRegi__Event__52593CB8" FromRole="EventRegistration" ToRole="Event" />
         </EntityType>

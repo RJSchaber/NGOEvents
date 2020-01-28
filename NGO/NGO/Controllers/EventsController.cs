@@ -9,7 +9,6 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using NGO.Models;
-using System.Web.Mvc.Ajax;
 
 
 namespace NGO.Controllers

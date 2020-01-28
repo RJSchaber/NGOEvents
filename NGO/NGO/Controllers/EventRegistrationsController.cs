@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -36,28 +38,44 @@ namespace NGO.Controllers
             return View(eventRegistration);
         }
 
-        // GET: EventRegistrations/Create
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName");
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Event @event = db.Events.Find(id);
+
+            if (@event == null)
+            {
+                return HttpNotFound();
+            }
+
+            ViewBag.EventName = @event.EventName;
+            ViewBag.EventID = @event.EventID;
+
             return View();
         }
 
-        // POST: EventRegistrations/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "RegistrationID,FirstName,LastName,EmailAddress,PhoneNumber,Address,AdultTickets,ChildTickets,EventID")] EventRegistration eventRegistration)
+        public ActionResult Create([Bind(Include = "RegistrationID,FirstName,LastName,EmailAddress,PhoneNumber,Address,AdultTickets,ChildTickets,EventID")] EventRegistration eventRegistration, int? id)
         {
+            Event @event = db.Events.Find(id);
+
+            eventRegistration.Event = @event;
+
+            eventRegistration.EventID = @event.EventID;
+
             if (ModelState.IsValid)
             {
                 db.EventRegistrations.Add(eventRegistration);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("EventUserView", "Events" );
             }
 
-            ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName", eventRegistration.EventID);
+            //ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName", eventRegistration.EventID);
             return View(eventRegistration);
         }
 
@@ -77,13 +95,11 @@ namespace NGO.Controllers
             return View(eventRegistration);
         }
 
-        // POST: EventRegistrations/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "RegistrationID,FirstName,LastName,EmailAddress,PhoneNumber,Address,AdultTickets,ChildTickets,EventID")] EventRegistration eventRegistration)
         {
+
             if (ModelState.IsValid)
             {
                 db.Entry(eventRegistration).State = EntityState.Modified;
