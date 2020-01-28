@@ -1,0 +1,30 @@
+﻿@model NGO.Models.UserNGO
+@{
+    ViewBag.Title = "Login";
+}
+@{
+    Layout = null;
+}
+@Styles.Render("~/Content/Login.css")
+<h2>NGO project</h2>
+@using (Html.BeginForm())
+
+{
+    <div class="form-2" }>
+        <p class="float">
+            @Html.LabelFor(model => model.UserID, new { @class = "icon-user" })
+            @Html.TextBoxFor(model => model.UserID)
+            @Html.ValidationMessageFor(model => model.UserID)
+        </p>
+        <p class="float">
+            @Html.LabelFor(model => model.Password, new { @class = "icon-lock" })
+            @Html.TextBoxFor(model => model.Password, new { @class = "showpassword" })
+            @Html.ValidationMessageFor(model => model.Password)
+            @ViewBag.Errormessage;
+        </p>
+        <p class="clearfix">
+            <input type="submit" name="submit" value="Log in">
+        </p>
+    </div>
+
+}

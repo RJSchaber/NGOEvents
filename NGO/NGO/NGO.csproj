@@ -133,6 +133,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\UserNGOesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -176,6 +178,8 @@
     <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\jquery-ui.structure.css" />
     <Content Include="Content\jquery-ui.theme.css" />
+    <Content Include="Content\Login.css" />
+    <Content Include="Content\Sidebar.css" />
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -338,6 +342,13 @@
     <Content Include="Views\Events\EventUserView.cshtml" />
     <Content Include="Views\Events\Close.cshtml" />
     <Content Include="Views\Events\EventUserViewDetails.cshtml" />
+    <Content Include="Views\Login\Login.cshtml" />
+    <Content Include="Views\UserNGOes\Create.cshtml" />
+    <Content Include="Views\UserNGOes\Delete.cshtml" />
+    <Content Include="Views\UserNGOes\Details.cshtml" />
+    <Content Include="Views\UserNGOes\Edit.cshtml" />
+    <Content Include="Views\UserNGOes\Index.cshtml" />
+    <Content Include="Views\Shared\AdminLayout.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
