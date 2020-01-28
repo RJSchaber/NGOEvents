@@ -5,6 +5,20 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ngoModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="EventRegistration">
+          <Key>
+            <PropertyRef Name="RegistrationID" />
+          </Key>
+          <Property Name="RegistrationID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="EmailAddress" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PhoneNumber" Type="char" MaxLength="10" Nullable="false" />
+          <Property Name="Address" Type="varchar(max)" Nullable="false" />
+          <Property Name="AdultTickets" Type="int" Nullable="false" />
+          <Property Name="ChildTickets" Type="int" Nullable="false" />
+          <Property Name="EventID" Type="int" Nullable="false" />
+        </EntityType>
         <EntityType Name="Events">
           <Key>
             <PropertyRef Name="EventID" />
@@ -34,9 +48,26 @@
           <Property Name="Password" Type="varchar" MaxLength="50" />
           <Property Name="Role" Type="varchar" MaxLength="50" />
         </EntityType>
+        <Association Name="FK__EventRegi__Event__52593CB8">
+          <End Role="Events" Type="Self.Events" Multiplicity="1" />
+          <End Role="EventRegistration" Type="Self.EventRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Events">
+              <PropertyRef Name="EventID" />
+            </Principal>
+            <Dependent Role="EventRegistration">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="ngoModel1StoreContainer">
+          <EntitySet Name="EventRegistration" EntityType="Self.EventRegistration" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Events" EntityType="Self.Events" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserNGO" EntityType="Self.UserNGO" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__EventRegi__Event__52593CB8" Association="Self.FK__EventRegi__Event__52593CB8">
+            <End Role="Events" EntitySet="Events" />
+            <End Role="EventRegistration" EntitySet="EventRegistration" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
@@ -59,10 +90,16 @@
           <Property Name="AdultTicket" Nullable="false" Precision="5" Scale="2" Type="Decimal" />
           <Property Name="ChildTicket" Nullable="false" Precision="5" Scale="2" Type="Decimal" />
           <Property Name="Location" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EventRegistrations" Relationship="ngoModel1.FK__EventRegi__Event__52593CB8" FromRole="Event" ToRole="EventRegistration" />
         </EntityType>
         <EntityContainer Name="ngoEntities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Events" EntityType="Self.Event" />
           <EntitySet Name="UserNGOes" EntityType="ngoModel1.UserNGO" />
+          <EntitySet Name="EventRegistrations" EntityType="ngoModel1.EventRegistration" />
+          <AssociationSet Name="FK__EventRegi__Event__52593CB8" Association="ngoModel1.FK__EventRegi__Event__52593CB8">
+            <End Role="Event" EntitySet="Events" />
+            <End Role="EventRegistration" EntitySet="EventRegistrations" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="UserNGO">
           <Key>
@@ -75,6 +112,33 @@
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Role" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="EventRegistration">
+          <Key>
+            <PropertyRef Name="RegistrationID" />
+          </Key>
+          <Property Name="RegistrationID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="EmailAddress" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="false" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="AdultTickets" Type="Int32" Nullable="false" />
+          <Property Name="ChildTickets" Type="Int32" Nullable="false" />
+          <Property Name="EventID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Event" Relationship="ngoModel1.FK__EventRegi__Event__52593CB8" FromRole="EventRegistration" ToRole="Event" />
+        </EntityType>
+        <Association Name="FK__EventRegi__Event__52593CB8">
+          <End Type="ngoModel1.Event" Role="Event" Multiplicity="1" />
+          <End Type="ngoModel1.EventRegistration" Role="EventRegistration" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Event">
+              <PropertyRef Name="EventID" />
+            </Principal>
+            <Dependent Role="EventRegistration">
+              <PropertyRef Name="EventID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -109,6 +173,21 @@
                 <ScalarProperty Name="Last_Name" ColumnName="Last Name" />
                 <ScalarProperty Name="First_Name" ColumnName="First Name" />
                 <ScalarProperty Name="UserID" ColumnName="UserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventRegistrations">
+            <EntityTypeMapping TypeName="ngoModel1.EventRegistration">
+              <MappingFragment StoreEntitySet="EventRegistration">
+                <ScalarProperty Name="EventID" ColumnName="EventID" />
+                <ScalarProperty Name="ChildTickets" ColumnName="ChildTickets" />
+                <ScalarProperty Name="AdultTickets" ColumnName="AdultTickets" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="RegistrationID" ColumnName="RegistrationID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

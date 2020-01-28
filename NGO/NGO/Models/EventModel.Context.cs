@@ -27,5 +27,6 @@ namespace NGO.Models
     
         public virtual DbSet<Event> Events { get; set; }
         public virtual DbSet<UserNGO> UserNGOes { get; set; }
+        public virtual DbSet<EventRegistration> EventRegistrations { get; set; }
     }
 }

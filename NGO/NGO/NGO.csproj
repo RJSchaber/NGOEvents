@@ -131,6 +131,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\EventRegistrationsController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -155,6 +156,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>EventModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EventRegistration.cs">
+      <DependentUpon>EventModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\UserNGO.cs">
       <DependentUpon>EventModel.tt</DependentUpon>
@@ -342,6 +346,12 @@
     <Content Include="Views\Events\EventUserView.cshtml" />
     <Content Include="Views\Events\Close.cshtml" />
     <Content Include="Views\Events\EventUserViewDetails.cshtml" />
+    <Content Include="Views\EventRegistrations\Create.cshtml" />
+    <Content Include="Views\EventRegistrations\Delete.cshtml" />
+    <Content Include="Views\EventRegistrations\Details.cshtml" />
+    <Content Include="Views\EventRegistrations\Edit.cshtml" />
+    <Content Include="Views\EventRegistrations\Index.cshtml" />
+
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\UserNGOes\Create.cshtml" />
     <Content Include="Views\UserNGOes\Delete.cshtml" />
@@ -349,6 +359,7 @@
     <Content Include="Views\UserNGOes\Edit.cshtml" />
     <Content Include="Views\UserNGOes\Index.cshtml" />
     <Content Include="Views\Shared\AdminLayout.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

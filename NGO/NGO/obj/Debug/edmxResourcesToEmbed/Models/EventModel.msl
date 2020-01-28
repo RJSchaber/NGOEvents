@@ -32,5 +32,20 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="EventRegistrations">
+      <EntityTypeMapping TypeName="ngoModel1.EventRegistration">
+        <MappingFragment StoreEntitySet="EventRegistration">
+          <ScalarProperty Name="EventID" ColumnName="EventID" />
+          <ScalarProperty Name="ChildTickets" ColumnName="ChildTickets" />
+          <ScalarProperty Name="AdultTickets" ColumnName="AdultTickets" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="EmailAddress" ColumnName="EmailAddress" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="RegistrationID" ColumnName="RegistrationID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>
