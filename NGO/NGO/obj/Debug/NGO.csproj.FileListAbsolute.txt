@@ -244,4 +244,3 @@ C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.csproj.CoreC
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.csproj.CopyComplete
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.dll
 C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.pdb
-C:\Users\Doubtless\Documents\GitHub\NGOEvents\NGO\NGO\obj\Debug\NGO.csprojAssemblyReference.cache
