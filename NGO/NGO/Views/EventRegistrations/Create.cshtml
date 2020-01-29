@@ -8,13 +8,13 @@
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Register For: @ViewBag.EventName</h4>
+<div class="row">
+    <div class="form-horizontal col-sm-6">
+        <h4 class="event-header-space">Register For: @ViewBag.EventName</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.FirstName, htmlAttributes: new { @class = "control-label col-md-6" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
@@ -71,15 +71,15 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" id=@ViewBag.EventID/>
+                <input type="submit" value="Register" class="btn btn-primary" id=@ViewBag.EventID /> @Html.ActionLink("Cancel", "EventUserViewDetails", "Events", new { id = ViewBag.EventID }, new { @class = "btn btn-primary" })
             </div>
         </div>
     </div>
-}
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
+    <div class="col-sm-6 eventregdetailimages">
+        <img src="@Url.Content(ViewBag.ImagePath)" class="event-thumbnail rounded" />
+    </div>
 </div>
+    }
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

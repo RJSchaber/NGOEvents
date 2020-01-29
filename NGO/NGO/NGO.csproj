@@ -351,7 +351,6 @@
     <Content Include="Views\EventRegistrations\Details.cshtml" />
     <Content Include="Views\EventRegistrations\Edit.cshtml" />
     <Content Include="Views\EventRegistrations\Index.cshtml" />
-
     <Content Include="Views\Login\Login.cshtml" />
     <Content Include="Views\UserNGOes\Create.cshtml" />
     <Content Include="Views\UserNGOes\Delete.cshtml" />
@@ -359,7 +358,7 @@
     <Content Include="Views\UserNGOes\Edit.cshtml" />
     <Content Include="Views\UserNGOes\Index.cshtml" />
     <Content Include="Views\Shared\AdminLayout.cshtml" />
-
+    <Content Include="Views\EventRegistrations\Confirmed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

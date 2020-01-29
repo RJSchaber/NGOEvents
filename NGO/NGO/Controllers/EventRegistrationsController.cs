@@ -23,20 +23,32 @@ namespace NGO.Controllers
             return View(eventRegistrations.ToList());
         }
 
-        // GET: EventRegistrations/Details/5
-        public ActionResult Details(int? id)
+        public ActionResult Details(EventRegistration eventRegistration)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            EventRegistration eventRegistration = db.EventRegistrations.Find(id);
-            if (eventRegistration == null)
-            {
-                return HttpNotFound();
-            }
+            Event @event = db.Events.Find(eventRegistration.EventID);
+            decimal adultTickets = @event.AdultTicket;
+            decimal childTickets = @event.ChildTicket;
+            decimal adultCost = adultTickets * eventRegistration.AdultTickets;
+            decimal childCost = childTickets * eventRegistration.ChildTickets;
+            decimal totalCost = adultCost + childCost;
+            ViewBag.EventName = @event.EventName;
+
+            eventRegistration.ChildCost = childCost;
+            eventRegistration.AdultCost = adultCost;
+            eventRegistration.TotalCost = totalCost;
+            this.Session["EventRegistration"] = eventRegistration;
             return View(eventRegistration);
         }
+
+        [HttpPost]
+        public ActionResult Details()
+        {
+            var eventRegistration = this.Session["EventRegistration"] as EventRegistration;
+            db.EventRegistrations.Add(eventRegistration);
+            db.SaveChanges();
+            return RedirectToAction("Confirmed", "EventRegistrations", eventRegistration);
+        }
+        
 
         public ActionResult Create(int? id)
         {
@@ -54,6 +66,7 @@ namespace NGO.Controllers
 
             ViewBag.EventName = @event.EventName;
             ViewBag.EventID = @event.EventID;
+            ViewBag.ImagePath = @event.EventImage;
 
             return View();
         }
@@ -63,19 +76,14 @@ namespace NGO.Controllers
         public ActionResult Create([Bind(Include = "RegistrationID,FirstName,LastName,EmailAddress,PhoneNumber,Address,AdultTickets,ChildTickets,EventID")] EventRegistration eventRegistration, int? id)
         {
             Event @event = db.Events.Find(id);
-
             eventRegistration.Event = @event;
-
             eventRegistration.EventID = @event.EventID;
 
             if (ModelState.IsValid)
             {
-                db.EventRegistrations.Add(eventRegistration);
-                db.SaveChanges();
-                return RedirectToAction("EventUserView", "Events" );
+                return RedirectToAction("Details", "EventRegistrations", eventRegistration );
             }
 
-            //ViewBag.EventID = new SelectList(db.Events, "EventID", "EventName", eventRegistration.EventID);
             return View(eventRegistration);
         }
 
@@ -144,5 +152,11 @@ namespace NGO.Controllers
             }
             base.Dispose(disposing);
         }
+
+        public ActionResult Confirmed(EventRegistration eventRegistration)
+        {
+            return View(eventRegistration);
+        }
+
     }
 }

@@ -8,6 +8,7 @@ namespace NGO.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Web;
 
+    [Serializable]
     public partial class EventRegistration
     {
         [Required][Key]
@@ -38,15 +39,32 @@ namespace NGO.Models
         [MaxLength(200, ErrorMessage = "The Address can not be longer than 200 characters.")]
         public string Address { get; set; }
 
+        [Range(1, 999)]
         [Display(Name = "Adult Tickets", Prompt = "Enter Amount of Adult Tickets", Description = "Adult Tickets")]
         public int AdultTickets { get; set; }
 
+        [Range(1, 999)]
         [Display(Name = "Child Tickets", Prompt = "Enter Amount of Childrens Tickets", Description = "Childrens Tickets")]
         public int ChildTickets { get; set; }
 
         [Required][ForeignKey("Event")]
         public int EventID { get; set; }
-    
+
+        [NotMapped]
+        [DataType(DataType.Currency)]
+        [Display(Name = "Adult Ticket Cost", Prompt = "The Cost of Adult Tickets", Description = "Adult Ticket Cost")]
+        public decimal AdultCost { get; set; }
+
+        [NotMapped]
+        [DataType(DataType.Currency)]
+        [Display(Name = "Child Ticket Cost", Prompt = "The Cost of Childrens Tickets", Description = "Child Ticket Cost")]
+        public decimal ChildCost { get; set; }
+
+        [NotMapped]
+        [DataType(DataType.Currency)]
+        [Display(Name = "Total Ticket Cost", Prompt = "The Cost of All Tickets", Description = "Total Ticket Cost")]
+        public decimal TotalCost { get; set; }
+
         public virtual Event Event { get; set; }
     }
 }
