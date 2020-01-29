@@ -1,8 +1,8 @@
 ﻿@model NGO.Models.Event
 
 @{
-    ViewBag.Title = "EventUserViewDetails";
-    
+    ViewBag.Title = "Event Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <div class="eventbottmargin">
@@ -22,10 +22,10 @@
             <div class="row eventregheaders">@Html.DisplayNameFor(model => model.EventName)</div>
             <div class="row eventregcontent">@Html.DisplayFor(model => model.EventName)</div>
 
-            <div class="row eventregheaders">Start Date and Time </div>
+            <div class="row eventregheaders">Start Date/Time </div>
             <div class="row eventregcontent">@Html.DisplayFor(model => model.EventStartDate) at @Html.DisplayFor(model => model.EventStartTime)</div>
 
-            <div class="row eventregheaders">End Date and Time </div>
+            <div class="row eventregheaders">End Date/Time </div>
             <div class="row eventregcontent">@Html.DisplayFor(model => model.EventEndDate) at @Html.DisplayFor(model => model.EventEndTime)</div>
         </div>
         <div class="col-sm-4">
@@ -40,7 +40,7 @@
         </div>
 
         <div class="col-sm-4">
-            <img src="@Url.Content(ViewBag.ImagePath)" class="event-thumbnail rounded" />
+            <img src="@Url.Content(ViewBag.ImagePath)" class="event-thumbnail rounded eventimageshover" />
         </div>
     </div>
     @if (Model.RegOpen == "True")

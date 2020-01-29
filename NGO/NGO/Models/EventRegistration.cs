@@ -39,11 +39,11 @@ namespace NGO.Models
         [MaxLength(200, ErrorMessage = "The Address can not be longer than 200 characters.")]
         public string Address { get; set; }
 
-        [Range(1, 999)]
+        [Range(0, 999)]
         [Display(Name = "Adult Tickets", Prompt = "Enter Amount of Adult Tickets", Description = "Adult Tickets")]
         public int AdultTickets { get; set; }
 
-        [Range(1, 999)]
+        [Range(0, 999)]
         [Display(Name = "Child Tickets", Prompt = "Enter Amount of Childrens Tickets", Description = "Childrens Tickets")]
         public int ChildTickets { get; set; }
 
