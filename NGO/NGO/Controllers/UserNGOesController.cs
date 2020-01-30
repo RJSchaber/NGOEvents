@@ -52,7 +52,7 @@ namespace NGO.Controllers
             {
                 db.UserNGOes.Add(userNGO);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return View("Close");
             }
 
             return View(userNGO);
@@ -84,7 +84,7 @@ namespace NGO.Controllers
             {
                 db.Entry(userNGO).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return View("Close");
             }
             return View(userNGO);
         }
@@ -112,7 +112,7 @@ namespace NGO.Controllers
             UserNGO userNGO = db.UserNGOes.Find(id);
             db.UserNGOes.Remove(userNGO);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return View("Close");
         }
 
         protected override void Dispose(bool disposing)

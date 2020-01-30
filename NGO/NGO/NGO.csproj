@@ -362,6 +362,7 @@
     <Content Include="Views\EventRegistrations\CreateAdmin.cshtml" />
     <Content Include="Views\EventRegistrations\DetailsAdmin.cshtml" />
     <Content Include="Views\EventRegistrations\ConfirmedAdmin.cshtml" />
+    <Content Include="Views\UserNGOes\Close.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

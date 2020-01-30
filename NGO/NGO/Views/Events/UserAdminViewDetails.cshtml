@@ -43,12 +43,6 @@
                 <img src="@Url.Content(ViewBag.ImagePath)" class="event-thumbnail rounded" />
             </div>
         </div>
-        @if (Model.RegOpen == "True")
-        {
-            <div class="row justify-content-center">
-                @Html.ActionLink("Register", "CreateAdmin", "EventRegistrations", new { id = Model.EventID }, new { @class = "btn btn-primary btn-lg" })
-            </div>
-        }
 
     </div>
 <p>
