@@ -1,0 +1,10 @@
+﻿.table th {
+    border: 3px solid black;
+    background-color: darkcyan;
+}
+.table tr:nth-child(even){
+    background-color: aqua;
+}
+.table tr:nth-child(odd){
+    background-color: darkgray;
+}

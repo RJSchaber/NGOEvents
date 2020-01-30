@@ -1,0 +1,83 @@
+﻿@model NGO.Models.EventRegistration
+
+@{
+    ViewBag.Title = "Registration Details";
+}
+
+@using (Html.BeginForm("Details", "EventRegistrations", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <div>
+        <h4 class="event-header-space">Confirm Registration For: @ViewBag.EventName</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.FirstName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.LastName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.LastName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EmailAddress)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EmailAddress)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNumber)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.AdultCost)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.AdultCost)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.ChildCost)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ChildCost)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TotalCost)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TotalCost)
+            </dd>
+
+        </dl>
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Confirm" class="btn btn-primary" id=Model.RegistrationID /> @Html.ActionLink("Cancel", "EventUserViewDetails", "Events", new { id = Model.EventID }, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+}

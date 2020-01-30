@@ -1,0 +1,84 @@
+﻿.create-new-event {
+    text-align: right !important;
+    font-size: 20px;
+    font-weight: bold;
+    vertical-align: text-bottom;
+    margin-top: 3%;
+}
+
+/* unvisited link */
+    .new-event a:link {
+        color: black;
+    }
+
+/* visited link */
+    .new-event a:visited {
+        color: black;
+    }
+
+/* mouse over link */
+    .new-event a:hover {
+        color: blue;
+        text-decoration: none;
+    }
+
+/* selected link */
+    .new-event a:active {
+        color: black;
+    }
+
+.event-header-space {
+    margin-top: 3%;
+}
+
+.eventrow {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.event-thumbnail {
+    padding: 0.25rem;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    width: 350px;
+    height: 400px;
+}
+
+.event-column {
+    padding-bottom: 1.5%;
+}
+
+.eventregheaders {
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-top: 2%;
+    padding: 1%;
+}
+
+.eventregcontent {
+    margin-bottom: 2%;
+    padding: 1%;
+    font-size: 1.1rem;
+}
+
+.eventbottmargin{
+    margin-bottom: 5%;
+}
+
+.eventregdetails{
+    font-weight: bold;
+    margin-left: -20px;
+    padding: 0;
+    text-align: center;
+}
+
+.eventregdetailimages{
+    text-align: center !important;
+    margin-top: 10%;
+}
+
