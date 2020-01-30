@@ -357,6 +357,11 @@
     <Content Include="Views\UserNGOes\Index.cshtml" />
     <Content Include="Views\Shared\AdminLayout.cshtml" />
     <Content Include="Views\EventRegistrations\Confirmed.cshtml" />
+    <Content Include="Views\Events\UserAdminViews.cshtml" />
+    <Content Include="Views\Events\UserAdminViewDetails.cshtml" />
+    <Content Include="Views\EventRegistrations\CreateAdmin.cshtml" />
+    <Content Include="Views\EventRegistrations\DetailsAdmin.cshtml" />
+    <Content Include="Views\EventRegistrations\ConfirmedAdmin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

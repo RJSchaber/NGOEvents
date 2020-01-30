@@ -4,13 +4,13 @@
     ViewBag.Title = "Index";
 }
 @{ 
-    Layout = "~/Views/Shared/AdminLayout.cshtml";
-}
+    Layout = "~/Views/Shared/AdminLayout.cshtml"; 
+    }
 
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <a href="#" onclick="CreatePopup();">Create</a>
 </p>
 <p>
     Hello, Admin
@@ -53,11 +53,41 @@
             @Html.DisplayFor(modelItem => item.Role)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.UserID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.UserID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.UserID })
+            <a href="#" id="@item.UserID" onclick="EditPopup(id);">Edit </a>
+            |
+            <a href="#" id="@item.UserID" onclick="DetailsPopup(id);">Details </a>
+            |
+            <a href="#" id="@item.UserID" onclick="DeletePopup(id);">Delete</a>
         </td>
     </tr>
 }
 
 </table>
+<script type="text/javascript">
+
+    EditPopup = function (id) {
+        var url = '@Url.Action("Edit", "UserNGOes")';
+        var fullLink = url + "/" + id;
+
+        window.open(fullLink, "PopupWindow", 'width=800px,height=800px,top=150,left=250');
+    }
+
+    DetailsPopup = function (id) {
+
+        var url = '@Url.Action("Details", "UserNGOes")';
+        var fullLink = url + "/" + id;
+        window.open(fullLink, "PopupWindow", 'width=800px,height=800px,top=150,left=250');
+    }
+
+    DeletePopup = function (id) {
+
+        var url = '@Url.Action("Delete", "UserNGOes")';
+        var fullLink = url + "/" + id;
+        window.open(fullLink, "PopupWindow", 'width=800px,height=800px,top=150,left=250');
+    }
+
+    CreatePopup = function () {
+        window.open('Create', "PopupWindow", 'width=800px,height=800px,top=150,left=250');
+    }
+
+</script>

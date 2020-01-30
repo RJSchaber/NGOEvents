@@ -48,9 +48,55 @@ namespace NGO.Controllers
             db.SaveChanges();
             return RedirectToAction("Confirmed", "EventRegistrations", eventRegistration);
         }
-        
+
+        public ActionResult DetailsAdmin(EventRegistration eventRegistration)
+        {
+            Event @event = db.Events.Find(eventRegistration.EventID);
+            decimal adultTickets = @event.AdultTicket;
+            decimal childTickets = @event.ChildTicket;
+            decimal adultCost = adultTickets * eventRegistration.AdultTickets;
+            decimal childCost = childTickets * eventRegistration.ChildTickets;
+            decimal totalCost = adultCost + childCost;
+            ViewBag.EventName = @event.EventName;
+
+            eventRegistration.ChildCost = childCost;
+            eventRegistration.AdultCost = adultCost;
+            eventRegistration.TotalCost = totalCost;
+            this.Session["EventRegistration"] = eventRegistration;
+            return View(eventRegistration);
+        }
+
+        [HttpPost]
+        public ActionResult DetailsAdmin()
+        {
+            var eventRegistration = this.Session["EventRegistration"] as EventRegistration;
+            db.EventRegistrations.Add(eventRegistration);
+            db.SaveChanges();
+            return RedirectToAction("ConfirmedAdmin", "EventRegistrations", eventRegistration);
+        }
+
 
         public ActionResult Create(int? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+
+            Event @event = db.Events.Find(id);
+
+            if (@event == null)
+            {
+                return HttpNotFound();
+            }
+
+            ViewBag.EventName = @event.EventName;
+            ViewBag.EventID = @event.EventID;
+            ViewBag.ImagePath = @event.EventImage;
+
+            return View();
+        }
+        public ActionResult CreateAdmin(int? id)
         {
             if (id == null)
             {
@@ -82,6 +128,19 @@ namespace NGO.Controllers
             if (ModelState.IsValid)
             {
                 return RedirectToAction("Details", "EventRegistrations", eventRegistration );
+            }
+
+            return View(eventRegistration);
+        }
+        public ActionResult CreateAdmin([Bind(Include = "RegistrationID,FirstName,LastName,EmailAddress,PhoneNumber,Address,AdultTickets,ChildTickets,EventID")] EventRegistration eventRegistration, int? id)
+        {
+            Event @event = db.Events.Find(id);
+            eventRegistration.Event = @event;
+            eventRegistration.EventID = @event.EventID;
+
+            if (ModelState.IsValid)
+            {
+                return RedirectToAction("DetailsAdmin", "EventRegistrations", eventRegistration);
             }
 
             return View(eventRegistration);
@@ -154,6 +213,10 @@ namespace NGO.Controllers
         }
 
         public ActionResult Confirmed(EventRegistration eventRegistration)
+        {
+            return View(eventRegistration);
+        }
+        public ActionResult ConfirmedAdmin(EventRegistration eventRegistration)
         {
             return View(eventRegistration);
         }

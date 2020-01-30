@@ -17,15 +17,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @Html.ActionLink("NGO", "Login", "Login", new { area = "" }, new { @class = "navbar-brand" })
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="nav-item">@Html.ActionLink("Home", "Index", "Home", new { @class = "navbar-link" })</li>
-                    <li class="nav-item active">@Html.ActionLink("About", "About", "Home", new { @class = "navbar-link" })</li>
-                    <li class="nav-item active">@Html.ActionLink("Contact", "Contact", "Home", new { @class = "navbar-link" })</li>
-                </ul>
-            </div>
+            <p style="text-align:right; color:white;">Hello, User</p>
         </div>
     </div>
     <div class="container body-content">

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<NGO.Models.Event>
+@{
+    ViewBag.Title = "UserAdminViews";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+
+<div>
+    <h2 class="event-header-space">Events</h2>
+    <div class="eventrow">
+        @foreach (var item in Model)
+
+        {
+            <div class="col-sm-4 event-column">
+                <div class="row">
+                    <a href="@Url.Action("UserAdminViewDetails", "Events", new { id = item.EventID })">
+                        <img src="@Url.Content(item.EventImage)" class="event-thumbnail rounded" />
+                    </a>
+                </div>
+                <div class="eventregdetails justify-content-center">
+                    @Html.DisplayFor(modelItem => item.Location) :  @Html.DisplayFor(modelItem => item.EventName)
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
